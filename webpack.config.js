@@ -1,4 +1,5 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
@@ -14,5 +15,11 @@ module.exports = {
                 'css-loader'
             ]
         }]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+          filename: 'index.html', // 编译到 dist/index.html
+          template: 'src/index.html'
+        })
+    ]
 }
