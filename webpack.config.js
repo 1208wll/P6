@@ -1,6 +1,8 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var webpack = require('webpack');
+var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 module.exports = {
     entry: './src/js/index.js',
@@ -18,6 +20,7 @@ module.exports = {
         }]
     },
     plugins: [
+        new UglifyJsPlugin(),
         new HtmlWebpackPlugin({
           filename: 'index.html', // 编译到 dist/index.html
           template: 'src/index.html'
