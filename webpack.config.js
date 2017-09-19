@@ -3,6 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var webpack = require('webpack');
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: './src/js/index.js',
@@ -13,14 +14,15 @@ module.exports = {
     module: {
         rules: [{
             test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader'
-            ]
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader"
+            })
         }]
     },
     plugins: [
         new UglifyJsPlugin(),
+        new ExtractTextPlugin("styles.css"),
         new HtmlWebpackPlugin({
           filename: 'index.html', // 编译到 dist/index.html
           template: 'src/index.html'
@@ -28,6 +30,6 @@ module.exports = {
         new CopyWebpackPlugin([{
             from: 'src/images',
             to: 'images'
-        }])
+        }]),
     ]
 }
