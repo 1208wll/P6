@@ -1,5 +1,7 @@
 // 全局变量
 
+// 依赖 global
+
 var can1 = document.getElementById('canvas1');
 var ctx1 = can1.getContext('2d');   //上面的canvas
 var can2 = document.getElementById('canvas2');
@@ -25,3 +27,5 @@ var global = {
   dustOb: {},
   diffframetime: 0,
 }
+
+module.exports = global;

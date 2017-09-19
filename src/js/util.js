@@ -34,11 +34,9 @@ function distance(x1, y1, x2, y2, l) {
 	return false;
 }
 
-var util = {
+module.exports = {
   calLength2: calLength2,
   lerpAngle: lerpAngle,
   lerpDistance: lerpDistance,
   distance: distance,
 }
-
-// 暴露 util
