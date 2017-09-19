@@ -22,8 +22,8 @@ module.exports = {
         }]
     },
     plugins: [
-        new UglifyJsPlugin(),
         new CleanWebpackPlugin('./dist'),
+        // new UglifyJsPlugin(),
         new ExtractTextPlugin("styles.css"),
         new HtmlWebpackPlugin({
           filename: 'index.html', // 编译到 dist/index.html
