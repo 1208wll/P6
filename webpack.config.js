@@ -1,5 +1,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
@@ -20,6 +21,10 @@ module.exports = {
         new HtmlWebpackPlugin({
           filename: 'index.html', // 编译到 dist/index.html
           template: 'src/index.html'
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: 'src/images',
+            to: 'images'
+        }])
     ]
 }
